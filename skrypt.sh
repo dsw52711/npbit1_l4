@@ -25,7 +25,7 @@ flaga_logow=false
 ilosc_logow=100
 
 for argument in "$@"; do
-   if [ "$argument" == "--help" ]; then
+   if [ "$argument" == "--help" ] || [ "$argument" == "-h" ]; then
       wyswietl_sposob_uzycia
       exit 0
    fi
@@ -33,11 +33,11 @@ done
 
 while [[ $# -gt 0 ]]; do
    case $1 in
-      --date)
+      --date|-d)
          flaga_daty=true
          shift
       ;;
-      --logs)
+      --logs|-l)
          flaga_logow=true
          shift
          if [[ $1 =~ ^[0-9]+$ ]]; then
