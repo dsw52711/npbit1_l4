@@ -28,6 +28,7 @@ sklonuj_repo_i_dodaj_path() {
 
 flaga_daty=false
 flaga_logow=false
+flaga_inicjalizacji=false
 ilosc_logow=100
 
 for argument in "$@"; do
@@ -52,7 +53,8 @@ while [[ $# -gt 0 ]]; do
          fi
       ;;
       --init)
-         sklonuj_repo_i_dodaj_path
+         flaga_inicjalizacji=true
+         shift
       ;;
       *)
          shift
@@ -66,4 +68,8 @@ fi
 
 if $flaga_logow; then
    stworz_pliki_log $ilosc_logow
+fi
+
+if $flaga_inicjalizacji; then
+   sklonuj_repo_i_dodaj_path
 fi
