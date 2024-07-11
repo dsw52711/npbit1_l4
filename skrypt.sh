@@ -21,6 +21,11 @@ wyswietl_sposob_uzycia() {
    echo "  -h, --help          Wyświetl sposób użycia"
 }
 
+sklonuj_repo_i_dodaj_path() {
+   git clone https://github.com/dsw52711/npbit1_l4
+   export PATH="$PWD/npbit1_l4:$PATH"
+}
+
 flaga_daty=false
 flaga_logow=false
 ilosc_logow=100
@@ -45,6 +50,9 @@ while [[ $# -gt 0 ]]; do
             ilosc_logow=$1
             shift
          fi
+      ;;
+      --init)
+         sklonuj_repo_i_dodaj_path
       ;;
       *)
          shift
