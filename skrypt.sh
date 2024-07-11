@@ -12,6 +12,13 @@ stworz_pliki_log() {
    done
 }
 
+stworz_pliki_bledow() {
+   for i in $(seq 1 $1); do
+      nazwa_pliku=$(printf "error%03d.txt" $i)
+      touch $nazwa_pliku
+   done
+}
+
 wyswietl_sposob_uzycia() {
    echo "Sposób użycia: $0 [OPCJE]"
    echo ""
@@ -28,8 +35,11 @@ sklonuj_repo_i_dodaj_path() {
 
 flaga_daty=false
 flaga_logow=false
+flaga_bledow=false
 flaga_inicjalizacji=false
+
 ilosc_logow=100
+ilosc_bledow=100
 
 for argument in "$@"; do
    if [ "$argument" == "--help" ] || [ "$argument" == "-h" ]; then
@@ -52,6 +62,14 @@ while [[ $# -gt 0 ]]; do
             shift
          fi
       ;;
+      --error|-e)
+         flaga_bledow=true
+         shift
+         if [[ $1 =~ ^[0-9]+$ ]]; then
+            ilosc_bledow=$1
+            shift
+         fi
+      ;;
       --init)
          flaga_inicjalizacji=true
          shift
@@ -68,6 +86,10 @@ fi
 
 if $flaga_logow; then
    stworz_pliki_log $ilosc_logow
+fi
+
+if $flaga_bledow: then
+   stworz_pliki_bledow $ilosc_bledow
 fi
 
 if $flaga_inicjalizacji; then
