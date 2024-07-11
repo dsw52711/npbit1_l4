@@ -12,9 +12,24 @@ stworz_pliki_log() {
    done
 }
 
+wyswietl_sposob_uzycia() {
+   echo "Sposób użycia: $0 [--date] [--logs [ilość]] [--help]"
+   echo ""
+   echo "--date          Wyświetl dzisiejszą datę"
+   echo "--logs [ilość]  Utwórz określoną ilość plików log (domyślnie 100)"
+   echo "--help          Wyświetl sposób użycia"
+}
+
 flaga_daty=false
 flaga_logow=false
 ilosc_logow=100
+
+for argument in "$@"; do
+   if [ "$argument" == "--help" ]; then
+      wyswietl_sposob_uzycia
+      exit 0
+   fi
+done
 
 while [[ $# -gt 0 ]]; do
    case $1 in
