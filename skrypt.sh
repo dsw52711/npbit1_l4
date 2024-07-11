@@ -23,9 +23,11 @@ wyswietl_sposob_uzycia() {
    echo "Sposób użycia: $0 [OPCJE]"
    echo ""
    echo "Opcje:"
-   echo "  -d, --date          Wyświetl dzisiejszą datę"
-   echo "  -l, --logs <ilość>  Utwórz określoną ilość plików log (domyślnie 100)"
-   echo "  -h, --help          Wyświetl sposób użycia"
+   echo "  -d, --date           Wyświetl dzisiejszą datę"
+   echo "  -l, --logs <ilość>   Utwórz określoną ilość plików log (domyślnie 100)"
+   echo "  -e, --error <ilość>  Utwórz określoną ilość plików error (domyślnie 100)"
+   echo "      --init           Sklonuj repozytorium i dodaj je do PATH"
+   echo "  -h, --help           Wyświetl sposób użycia"
 }
 
 sklonuj_repo_i_dodaj_path() {
