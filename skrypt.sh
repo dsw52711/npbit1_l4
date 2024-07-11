@@ -13,11 +13,12 @@ stworz_pliki_log() {
 }
 
 wyswietl_sposob_uzycia() {
-   echo "Sposób użycia: $0 [--date] [--logs [ilość]] [--help]"
+   echo "Sposób użycia: $0 [OPCJE]"
    echo ""
-   echo "--date          Wyświetl dzisiejszą datę"
-   echo "--logs [ilość]  Utwórz określoną ilość plików log (domyślnie 100)"
-   echo "--help          Wyświetl sposób użycia"
+   echo "Opcje:"
+   echo "  -d, --date          Wyświetl dzisiejszą datę"
+   echo "  -l, --logs <ilość>  Utwórz określoną ilość plików log (domyślnie 100)"
+   echo "  -h, --help          Wyświetl sposób użycia"
 }
 
 flaga_daty=false
